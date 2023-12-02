@@ -1,0 +1,33 @@
+table-name: books
+data:
+  - id: e065007393eb4b579f7cfd5889fc13fb
+    author: William S. Vincent
+    title: Django for Beginners
+    publish_date: 2023-05-04
+    isbn: 1735467243
+    price: 56.31
+    available: True
+
+  - id: 4d980f94958045b29c34eb2e47d2ea6c
+    author: Antonio Mele
+    title: Django 4 By Example
+    publish_date: 2022-09-19
+    isbn: 1801813051
+    price: 80.87
+    available: True
+
+  - id: af9430aeae1746e3b68dab403a00cfbf
+    author: William S. Vincent
+    title: Django for Professionals
+    publish_date: 2022-08-11
+    isbn: 1735467235
+    price: 56.27
+    available: True
+
+  - id: 46fc40e6666044ee95e8cc663295f4e4
+    author: Ben Shaw
+    title: Web Development with Django
+    publish_date: 2023-05-26
+    isbn: 1803230606
+    price: 84.00
+    available: True
