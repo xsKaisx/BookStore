@@ -34,6 +34,16 @@ Các giải số khớp với quay số ngẫu nhiên. Không phương pháp nà
 Lưu ý chất lượng dữ liệu: file Power 6/55 có 1 bản ghi của Mega 6/45 lẫn vào (2022-09-23, mã 00944, chỉ 6 số);
 `common.rows_for` đã loại. Luôn kiểm tra mã kỳ liên tục và số lượng số mỗi kỳ trước khi phân tích.
 
+## Giải lớn "liên tục" có người trúng (số liệu công bố của Vietlott qua báo chí, 2026)
+- 533 người trúng Jackpot tiền tỷ của Mega 6/45 + Power 6/55 sau ~10 năm (1 người mỗi ~6,8 ngày); Power 6/55 có 358 giải
+  Jackpot có chủ (đến 04/02/2026). Jackpot 1 khởi điểm 12 tỷ (Mega) / 30 tỷ (Power), Jackpot 2 khởi điểm 3 tỷ.
+- Suy ngược số dòng vé mỗi kỳ (giả định 358 = J1+J2 của Power; Mega = 533-358 = 175): Power ~1,05 triệu dòng/kỳ,
+  Mega ~1,03 triệu dòng/kỳ. Hai ước lượng độc lập khớp nhau => tần suất có người trúng chục tỷ là đúng kỳ vọng
+  theo số vé bán ra (trung bình ~4 kỳ Power / ~8 kỳ Mega có 1 giải Jackpot), không cần quy luật.
+- Một người trúng nhiều lần có thật nhưng do mua cực nhiều: vụ 2023, 11 vé bao 18 (204.204 dòng, ~2 tỷ đồng) có ~4,9% cơ hội
+  trúng J1 hoặc J2 và đã trúng J2 4,6 tỷ. Tin đồn "một người trúng độc đắc Mega 2 lần" (kỳ 942, 966) đã bị Vietlott bác bỏ.
+- Cảnh báo: phân bổ Mega/Power của 533 là suy luận; số 358 có thể chỉ tính J1 (khi đó ~7,3 triệu dòng/kỳ).
+
 ## Hai ứng viên cần theo dõi (chưa xác nhận)
 
 1. Max 3D / 3D Pro, chữ số cuối = 6: 10,89% / 11,09% (CI95 10,5-11,3% / 10,6-11,6%), p ~1e-5 trên toàn dữ liệu.
