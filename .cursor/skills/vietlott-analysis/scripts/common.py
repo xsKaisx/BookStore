@@ -36,11 +36,24 @@ def read(fn):
     return [json.loads(line) for line in open(path)]
 
 
+def rows_for(game):
+    """Các bản ghi đã làm sạch và sắp theo (ngày, mã kỳ).
+
+    Kho dữ liệu từng có 1 bản ghi của Mega 6/45 (ngày 2022-09-23, mã 00944, chỉ 6 số) lẫn trong file Power 6/55;
+    loại các bản ghi Power/Lotto 5/35 thiếu số phụ.
+    """
+    fn, k, n = GAMES[game]
+    rows = read(fn)
+    if game in ("655", "535"):
+        rows = [r for r in rows if len(r["result"]) == k + 1]
+    rows.sort(key=lambda r: (r["date"], int(r["id"].lstrip("#"))))
+    return rows
+
+
 def load_set(game):
     """Trả về (draws[T,k] đã sort, weekday[T], dates, k, n)."""
     fn, k, n = GAMES[game]
-    rows = read(fn)
-    rows.sort(key=lambda r: (r["date"], int(r["id"].lstrip("#"))))
+    rows = rows_for(game)
     draws = np.array([sorted(r["result"][:k]) for r in rows], dtype=np.int16)
     wd = np.array([date.fromisoformat(r["date"]).weekday() for r in rows])
     return draws, wd, [r["date"] for r in rows], k, n

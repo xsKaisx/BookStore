@@ -20,6 +20,20 @@ Các giải số khớp với quay số ngẫu nhiên. Không phương pháp nà
 | Lịch: ngày/tháng quay có trùng số (`calendar`) | Không có (p 0,12-1,0). Tỉ lệ số <= 31 đúng lý thuyết. |
 | Cấu trúc trong số 3D (`struct3d`) | Các chữ số độc lập nhau; tổng chữ số, va chạm số trong kỳ đúng lý thuyết; dư chữ số 6 phân tán đều theo giải, vị trí quay và (Max 3D) theo năm. |
 
+## Giả thuyết "ngoài khuôn" (`out_of_box.py`, 28/10/2026)
+
+| Giả thuyết | Kết quả |
+|---|---|
+| "Có người trúng nhiều lần nên có quy luật ẩn" (`winners`) | Không cần quy luật. 1 dòng Max 3D Pro trúng ít nhất 1 giải ~3,9%/kỳ: chơi đều đặn 1 năm kỳ vọng ~6 lần trúng (5 dòng/kỳ: ~30 lần). Trúng jackpot 2 lần bằng 1 vé/kỳ gần như không xảy ra; nếu có thì thường do mua nhiều vé/dãy "bao" hoặc góp vé. Thiên lệch chọn lọc: chỉ thấy người trúng. |
+| Tổ hợp lặp lại giữa các kỳ (`overlap`: mọi cặp kỳ, phân phối số trùng so với siêu bội) | Không dày đuôi ở Mega, Lotto 5/35, Keno. Power 6/55 có 1 cặp trùng cả 6 số (#00647 16/11/2021 và #00993 06/02/2024, đã đối chiếu nguồn ngoài: 08-19-27-34-46-51, số phụ 02 và 24); kỳ vọng 0,035 cặp, P(>=1)=3,4%: trùng hợp hiếm, không phải quy luật. |
+| Liên hệ giữa các giải (`crossgame`) | Không có (Holm nhỏ nhất 0,07). |
+| Mã kỳ quay mod m liên quan số xuất hiện (`drawid`) | Không có sau làm sạch dữ liệu (Holm nhỏ nhất 0,12). Lotto 5/35 quay 2 lần/ngày, mã lẻ = buổi 1: tổng lẻ ở cả hai buổi (54,1% và 57,4%). |
+| Dấu vết bộ sinh số giả ngẫu nhiên (`prng`: độ phức tạp tuyến tính Berlekamp-Massey) | L ≈ n/2 đúng lý thuyết ở Bingo18, Keno, 3D (p 0,14-0,49): không có dấu vết LFSR. |
+| Tương đồng chữ số trong một kỳ 3D (`within3d`, null xáo trộn theo khối 100 kỳ) | Max 3D z=+2,8 (p=0,015), 3D Pro z=+0,6: không nhất quán giữa hai giải, không đủ sau hiệu chỉnh. |
+
+Lưu ý chất lượng dữ liệu: file Power 6/55 có 1 bản ghi của Mega 6/45 lẫn vào (2022-09-23, mã 00944, chỉ 6 số);
+`common.rows_for` đã loại. Luôn kiểm tra mã kỳ liên tục và số lượng số mỗi kỳ trước khi phân tích.
+
 ## Hai ứng viên cần theo dõi (chưa xác nhận)
 
 1. Max 3D / 3D Pro, chữ số cuối = 6: 10,89% / 11,09% (CI95 10,5-11,3% / 10,6-11,6%), p ~1e-5 trên toàn dữ liệu.

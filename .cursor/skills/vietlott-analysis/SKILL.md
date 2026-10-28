@@ -1,6 +1,6 @@
 ---
 name: vietlott-analysis
-description: Phân tích thống kê kết quả xổ số Vietlott (Mega 6/45, Power 6/55, Lotto 5/35, Keno, Bingo18, Max 3D, Max 3D Pro). Tải dữ liệu mới nhất, chạy kiểm định tính ngẫu nhiên với null Monte Carlo + hiệu chỉnh Holm, backtest walk-forward, kiểm chứng tiến cho giả thuyết chữ số cuối = 6 của Max 3D, và các phương pháp khác (học máy, NIST, Bayes, phổ tần số, phụ thuộc chéo, lịch, cấu trúc 3D). Dùng khi người dùng muốn cập nhật/chạy lại phân tích Vietlott, kiểm tra "quy luật" số trúng, hoặc đánh giá một chiến lược chọn số.
+description: Phân tích thống kê kết quả xổ số Vietlott (Mega 6/45, Power 6/55, Lotto 5/35, Keno, Bingo18, Max 3D, Max 3D Pro). Tải dữ liệu mới nhất, chạy kiểm định tính ngẫu nhiên với null Monte Carlo + hiệu chỉnh Holm, backtest walk-forward, kiểm chứng tiến cho giả thuyết chữ số cuối = 6 của Max 3D, và các phương pháp khác (học máy, NIST, Bayes, phổ tần số, phụ thuộc chéo, lịch, cấu trúc 3D, tổ hợp lặp, PRNG). Dùng khi người dùng muốn cập nhật/chạy lại phân tích Vietlott, kiểm tra "quy luật" số trúng, hoặc đánh giá một chiến lược chọn số.
 license: MIT
 ---
 
@@ -32,10 +32,13 @@ Dữ liệu có thể được hiệu chỉnh/bù kỳ thiếu về sau, nên s�
    Đặt `--forward-since` là ngày của lần phân tích trước để có kiểm chứng tiến chỉ trên kỳ mới.
 2. `python alt_methods.py all` (hoặc từng phần: `ml nist bayes spectral crossdraw calendar struct3d sumparity`).
    `ml` và `spectral` cho Keno chạy vài phút; `nist` mất ~3 phút do phép đo độ nén.
-3. Báo cáo: nêu số kiểm định, p thô nhỏ nhất, Bonferroni/Holm trên cả họ, và kiểm chứng tiến.
+3. `python out_of_box.py all` (hoặc `winners overlap crossgame drawid prng within3d`): giả thuyết ngoài khuôn,
+   gồm trả lời câu "có người trúng nhiều lần thì phải có quy luật" bằng tính toán theo ngẫu nhiên thuần.
+4. Báo cáo: nêu số kiểm định, p thô nhỏ nhất, Bonferroni/Holm trên cả họ, và kiểm chứng tiến.
 
 ## Quy tắc diễn giải (bắt buộc)
 
+- Kiểm tra chất lượng dữ liệu trước (mã kỳ liên tục, đủ số mỗi kỳ, không lẫn game khác).
 - Xác định họ giả thuyết TRƯỚC, đếm số kiểm định, hiệu chỉnh cả họ. p thô ~0,01-0,05 trong hàng chục kiểm định là nhiễu.
 - Chi-square thường giả định bốc có hoàn lại; với 6/45, 6/55, Keno hãy dùng null Monte Carlo (đã có sẵn).
 - Phát hiện sau khi nhìn dữ liệu chỉ là giả thuyết. Chỉ tính là xác nhận khi đúng ô/giả thuyết đó được kiểm trên kỳ MỚI.
